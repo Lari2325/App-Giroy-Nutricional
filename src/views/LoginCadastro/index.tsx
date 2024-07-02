@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { useFonts } from 'expo-font';
-import { useNavigation } from '@react-navigation/native'; 
-import colors from '../../Theme/colors';
+import colors from '../Theme/colors';
 import ImagemLogo from './assets/Logo-White.png';
-import Botao from '../../../components/Botao';
+import Botao from '../../components/Botao';
+import { useNavigation } from '@react-navigation/native';
 
 const ContainerLoginCadastro = styled.View`
     width: 100%;
@@ -23,9 +23,19 @@ const LogoBemVindo = styled.Image`
 `;
 
 function LoginCadastro() {
+    
+    const navigation = useNavigation();
 
+    const goToNextLoginView = () => {
+        navigation.navigate('LoginView');
+    };
+
+    const goToNextCadastro = () => {
+        navigation.navigate('Cadastro');
+    };
+    
     const [loaded] = useFonts({
-        GilroyBold: require('../../Fonts/Gilroy-Bold.ttf'),
+        GilroyBold: require('../Fonts/Gilroy-Bold.ttf'),
     });
     
     if (!loaded) {
@@ -41,6 +51,7 @@ function LoginCadastro() {
                 pressedColor="#d4d4d4" 
                 color="#fff" 
                 textColor={colors.tertiary} 
+                onPress={goToNextLoginView}
             />
 
             <Botao 
@@ -48,6 +59,7 @@ function LoginCadastro() {
                 pressedColor="#d4d4d4" 
                 color="#fff" 
                 textColor={colors.tertiary} 
+                onPress={goToNextCadastro}
             />
         </ContainerLoginCadastro>
     );

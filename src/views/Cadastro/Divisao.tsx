@@ -6,13 +6,12 @@ export const LinhaDivisao = styled.View`
     height: 2px;
     background-color: black;
 `
-
 export const ContainerDivisao = styled.View`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 `
 
 function Divisao(){

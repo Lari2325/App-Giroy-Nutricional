@@ -4,8 +4,7 @@ import Input from "../../components/Input";
 import { IconButton } from 'react-native-paper';
 import colors from "../Theme/colors";
 import Botao from "../../components/Botao";
-import { useNavigation } from "@react-navigation/native";
-import { Text, TouchableOpacity } from "react-native";
+import { Link, useNavigation } from "@react-navigation/native";
 
 export const ContainerFormEstilizado = styled.View`
     margin-top: 10px;
@@ -35,9 +34,9 @@ function Form(){
 
     const navigation = useNavigation();
 
-    const goToNextEsqueceuSenhaView = () => {
-        navigation.navigate('EsqueceuSenha');
-    };
+    const CodigoValidacaoEmail = ()=> [
+        navigation.navigate('CodigoValidacaoEmail')
+    ]
 
     return (
         <ContainerFormEstilizado>
@@ -46,29 +45,12 @@ function Form(){
                 <IconButtonWrapper>
                     <IconButton icon="account" iconColor="#fff" size={20} onPress={() => {}} />
                 </IconButtonWrapper>
-                <Input placeholder="Digite seu E-mail" />
+                <Input placeholder="Digite seu e-mail:" />
             </ContainerInput>
-            <TituloFormulario name="Senha:" />
-            <ContainerInput>
-                <IconButtonWrapper>
-                    <IconButton icon="lock" iconColor="#fff" size={20} onPress={() => {}} />
-                </IconButtonWrapper>
-                <Input 
-                    secureTextEntry={true}
-                    placeholder="Digite sua senha" 
-                />
-            </ContainerInput>
-
-            <Botao title="Fazer login" />
-
-            <ContainerEsqueciMinhaSenha>
-                <TouchableOpacity onPress={goToNextEsqueceuSenhaView} >
-                    <Text>
-                        <TituloFormulario name="Esqueceu sua senha?" />
-                    </Text>
-                </TouchableOpacity>
-            </ContainerEsqueciMinhaSenha>
-
+            <Botao 
+                title="Enviar" 
+                onPress={CodigoValidacaoEmail}
+            />
         </ContainerFormEstilizado>
     )
 }

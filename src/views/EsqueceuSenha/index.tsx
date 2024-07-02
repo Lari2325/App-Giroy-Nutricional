@@ -6,8 +6,9 @@ import Form from "./Form";
 import Divisao from "./Divisao";
 import { Text, View } from "react-native";
 import RedesSociais from "./RedesSociais";
-import { useNavigation } from "@react-navigation/native";
+import { Link, useNavigation } from "@react-navigation/native";
 import TituloFormulario from "../../components/TituloFormulario";
+import { TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-paper';
 
 export const ContainerFazerCadastro = styled.View`
@@ -28,7 +29,7 @@ export const TituloLogin = styled.Text`
     font-family: 'GilroyBold';
 `
 
-function LoginView(){
+function EsqueceuSenhaView(){
 
     const [loaded]  = useFonts({
         GilroyBold: require('../Fonts/Gilroy-Bold.ttf'),
@@ -38,38 +39,16 @@ function LoginView(){
         return null;
     }
 
-    const navigation = useNavigation();
-
-    const goToNextCadastroView = () => {
-        navigation.navigate('Cadastro');
-    };
-
     return (
         <ContainerLogin>
             <View>
                 <View>
-                    <TituloLogin>Seja</TituloLogin>
-                    <TituloLogin>Bem-vindo(a)</TituloLogin>
+                    <TituloLogin>Redefinição de senha</TituloLogin>
                 </View>
                 <Form />
             </View>
-            <Divisao />
-            <View>
-                <RedesSociais />
-            </View>
-
-            <ContainerFazerCadastro>
-                <Button
-                 onPress={goToNextCadastroView}
-                >
-                    <Text>
-                        <TituloFormulario name="Não tenho uma conta" />
-                    </Text>
-                </Button>
-            </ContainerFazerCadastro>
-
         </ContainerLogin>
     )
 }
 
-export default LoginView;
+export default EsqueceuSenhaView;

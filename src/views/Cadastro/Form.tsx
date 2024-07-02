@@ -4,8 +4,8 @@ import Input from "../../components/Input";
 import { IconButton } from 'react-native-paper';
 import colors from "../Theme/colors";
 import Botao from "../../components/Botao";
+import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Text, TouchableOpacity } from "react-native";
 
 export const ContainerFormEstilizado = styled.View`
     margin-top: 10px;
@@ -35,19 +35,32 @@ function Form(){
 
     const navigation = useNavigation();
 
-    const goToNextEsqueceuSenhaView = () => {
-        navigation.navigate('EsqueceuSenha');
-    };
+    const voltarPaginaLogin = () => {
+        navigation.navigate('LoginView');
+    }
+
+    const CadastrarInformacoes = () => {
+        navigation.navigate('CadastroConfirmacao');
+    }
 
     return (
         <ContainerFormEstilizado>
-            <TituloFormulario name="E-mail:" />
+            <TituloFormulario name="Nome:" />
             <ContainerInput>
                 <IconButtonWrapper>
                     <IconButton icon="account" iconColor="#fff" size={20} onPress={() => {}} />
                 </IconButtonWrapper>
-                <Input placeholder="Digite seu E-mail" />
+                <Input placeholder="Digite seu nome completo:" />
             </ContainerInput>
+
+            <TituloFormulario name="E-mail:" />
+            <ContainerInput>
+                <IconButtonWrapper>
+                    <IconButton icon="email" iconColor="#fff" size={20} onPress={() => {}} />
+                </IconButtonWrapper>
+                <Input placeholder="Digite seu e-mail:" />
+            </ContainerInput>
+
             <TituloFormulario name="Senha:" />
             <ContainerInput>
                 <IconButtonWrapper>
@@ -55,17 +68,31 @@ function Form(){
                 </IconButtonWrapper>
                 <Input 
                     secureTextEntry={true}
-                    placeholder="Digite sua senha" 
+                    placeholder="Digite sua senha:" 
                 />
             </ContainerInput>
 
-            <Botao title="Fazer login" />
+            <TituloFormulario name="Confirme sua senha:" />
+            <ContainerInput>
+                <IconButtonWrapper>
+                    <IconButton icon="lock" iconColor="#fff" size={20} onPress={() => {}} />
+                </IconButtonWrapper>
+                <Input 
+                    secureTextEntry={true}
+                    placeholder="Confirme sua senha:" 
+                />
+            </ContainerInput>
+
+            <Botao 
+                title="Cadastrar" 
+                onPress={CadastrarInformacoes}
+            />
 
             <ContainerEsqueciMinhaSenha>
-                <TouchableOpacity onPress={goToNextEsqueceuSenhaView} >
-                    <Text>
-                        <TituloFormulario name="Esqueceu sua senha?" />
-                    </Text>
+                <TouchableOpacity
+                    onPress={voltarPaginaLogin}
+                >
+                    <TituloFormulario name="Já tenho uma conta!" />
                 </TouchableOpacity>
             </ContainerEsqueciMinhaSenha>
 
