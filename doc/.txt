@@ -1,0 +1,84 @@
+CREATE TABLE clientes (
+    id SERIAL PRIMARY KEY,
+    nome TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    senha TEXT NOT NULL,
+    dt_nascimento DATE,
+    peso_atual_id INT REFERENCES peso(id),
+    meta_peso FLOAT,
+    altura FLOAT,
+    sexo TEXT,
+    objetivo TEXT,
+    atividade_diaria TEXT,
+    tipo_dieta TEXT,
+    problemas_saude TEXT[],
+    foto_url TEXT 
+);
+
+CREATE TABLE peso (
+    id SERIAL PRIMARY KEY,
+    peso FLOAT NOT NULL,
+    data DATE NOT NULL
+);
+
+CREATE TABLE exercicio (
+    id SERIAL PRIMARY KEY,
+    descricao TEXT,
+    tempo INTERVAL,
+    perda_caloria FLOAT,
+    data DATE,
+    tipo_exercicio TEXT
+);
+
+CREATE TABLE agua (
+    id SERIAL PRIMARY KEY,
+    litros FLOAT,
+    data DATE
+);
+
+CREATE TABLE cardapio (
+    id SERIAL PRIMARY KEY,
+    nome TEXT REFERENCES receita(nome),
+    gramas FLOAT,
+    data DATE,
+    calorias FLOAT
+);
+
+CREATE TABLE lista_compras (
+    id SERIAL PRIMARY KEY,
+    nome TEXT,
+    ativo BOOLEAN
+);
+
+CREATE TABLE receita (
+    id SERIAL PRIMARY KEY,
+    nome TEXT,
+    tempo INTERVAL,
+    categoria_receita TEXT REFERENCES ct_receitas(nome),
+    calorias FLOAT,
+    gordura FLOAT,
+    carboidrato FLOAT,
+    proteina FLOAT,
+    modo_preparo TEXT,
+    foto_url TEXT 
+);
+
+CREATE TABLE ct_receitas (
+    id SERIAL PRIMARY KEY,
+    nome TEXT
+);
+
+CREATE TABLE tb_ingredientes (
+    id SERIAL PRIMARY KEY,
+    nome TEXT
+);
+
+CREATE TABLE produtos_codigo_de_barras (
+    id SERIAL PRIMARY KEY,
+    nome TEXT,
+    peso FLOAT,
+    nota_qualidade_produto FLOAT,
+    ingredientes TEXT,
+    cod_barras TEXT,
+    foto_url TEXT
+);

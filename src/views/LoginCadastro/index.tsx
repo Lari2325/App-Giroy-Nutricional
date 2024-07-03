@@ -1,29 +1,19 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import { useFonts } from 'expo-font';
 import colors from '../Theme/colors';
 import ImagemLogo from './assets/Logo-White.png';
 import Botao from '../../components/Botao';
 import { useNavigation } from '@react-navigation/native';
+import Font from "../../models/Fonts/";
 
-const ContainerLoginCadastro = styled.View`
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: ${colors.primary};
-    padding: 50px 10px;
-`;
-
-const LogoBemVindo = styled.Image`
-    width: 200px;
-    height: 100px;
-    object-fit: contain;
-    margin-bottom: 30px;
-`;
+import {
+    ContainerLoginCadastro,
+    LogoBemVindo,
+} from '../../models/LoginCadastro/styled';
 
 function LoginCadastro() {
     
+    Font();
+
     const navigation = useNavigation();
 
     const goToNextLoginView = () => {
@@ -33,14 +23,6 @@ function LoginCadastro() {
     const goToNextCadastro = () => {
         navigation.navigate('Cadastro');
     };
-    
-    const [loaded] = useFonts({
-        GilroyBold: require('../Fonts/Gilroy-Bold.ttf'),
-    });
-    
-    if (!loaded) {
-        return null;
-    }
 
     return (
         <ContainerLoginCadastro>

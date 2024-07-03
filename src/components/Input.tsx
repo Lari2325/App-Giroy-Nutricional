@@ -19,13 +19,17 @@ export const InputFormularioEstilizado = styled.TextInput`
 type PlaceholderInput = {
     placeholder: string,
     secureTextEntry?: boolean;
+    value?: string;
+    onChangeText?: (text: string) => void;
 }
 
 const Input = (props: PlaceholderInput) => {
     return (
         <InputFormularioEstilizado 
+            value={props.value}
             placeholder={props.placeholder}
             secureTextEntry={props.secureTextEntry}
+            onChangeText={props.onChangeText}
         />
     )
 }

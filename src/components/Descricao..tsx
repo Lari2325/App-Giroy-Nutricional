@@ -7,7 +7,7 @@ type TextoDescricaoProps = {
 };
 
 const TextoDivisao = styled.Text<{ textColor: string }>`
-    font-size: 20px;
+    font-size: 18px;
     color: ${({ textColor }) => textColor || 'black'};
     font-family: 'GilroyBold';
 `;

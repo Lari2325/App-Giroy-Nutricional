@@ -1,35 +1,16 @@
 import TituloFormulario from "../../components/TituloFormulario";
-import styled from "styled-components/native";
 import Input from "../../components/Input";
 import { IconButton } from 'react-native-paper';
-import colors from "../Theme/colors";
 import Botao from "../../components/Botao";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-export const ContainerFormEstilizado = styled.View`
-    margin-top: 10px;
-`
-
-export const ContainerEsqueciMinhaSenha = styled.View`
-    align-items: center;
-    margin-top: 10px;
-`
-
-export const ContainerInput = styled.View`
-    position: relative;
-    flex-direction: row;
-    margin-top: 10px;
-`
-
-export const IconButtonWrapper = styled.View`
-    background: ${colors.primary};
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    align-items: center;
-    justify-content: center;
-`
+import {
+    ContainerFormEstilizado,
+    ContainerEsqueciMinhaSenha,
+    ContainerInput,
+    IconButtonWrapper,
+} from "../../models/Cadastro/styled";
 
 function Form(){
 

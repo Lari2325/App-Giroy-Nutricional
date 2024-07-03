@@ -67,6 +67,67 @@ const SmallInput = styled.TextInput`
     margin-bottom: 12px;
 `;
 
+const LinhaDivisao = styled.View`
+    width: 40%;
+    height: 2px;
+    background-color: black;
+`
+
+const ContainerDivisao = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+`
+
+const ContainerLogin = styled.SafeAreaView`
+    flex: 1;
+    padding: 25px 10px 0 10px;
+    justify-content: space-between;
+    background-color: ${colors.white};
+`
+    
+const TituloLogin = styled.Text`
+    color:  ${colors.primary};
+    font-size: 40px;
+    font-family: 'GilroyBold';
+`
+
+const ContainerFormEstilizado = styled.View`
+    margin-top: 10px;
+`
+
+const ContainerEsqueciMinhaSenha = styled.View`
+    align-items: center;
+    margin-top: 10px;
+`
+
+const ContainerInput = styled.View`
+    position: relative;
+    flex-direction: row;
+    margin-top: 10px;
+`
+
+const IconButtonWrapper = styled.View`
+    background: ${colors.primary};
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+`
+
+const IconContainer = styled.View`
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+`;
+
+const BoxRedeSocial = styled.View`
+    background-color: ${colors.primary};
+`;
+
 export {
     ContainerScrollView,
     BotaoPeso,
@@ -77,4 +138,14 @@ export {
     ContainerBoxInf,
     InputContainer,
     SmallInput,
+    LinhaDivisao,
+    ContainerDivisao,
+    ContainerLogin,
+    TituloLogin,
+    ContainerFormEstilizado,
+    ContainerEsqueciMinhaSenha,
+    ContainerInput,
+    IconButtonWrapper,
+    IconContainer,
+    BoxRedeSocial,
 };

@@ -1,18 +1,11 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native';
 import { IconButton } from 'react-native-paper';
-import styled from 'styled-components/native';
-import colors from '../Theme/colors';
 
-const IconContainer = styled.View`
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-`;
-
-const BoxRedeSocial = styled.View`
-    background-color: ${colors.primary};
-`;
+import {
+    IconContainer,
+    BoxRedeSocial,
+} from '../../models/Cadastro/styled';
 
 function RedesSociais(){
     return (

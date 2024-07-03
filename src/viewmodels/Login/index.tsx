@@ -1,22 +1,18 @@
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import LoginCadastro from '../../views/LoginCadastro';
 import LoginView from '../../views/Login';
 import Cadastro from '../../views/Cadastro';
 import EsqueceuSenha from '../../views/EsqueceuSenha';
 import CodigoValidacaoEmail from '../../views/CodigoValidacaoEmail';
 import CadastroConfirmacao from '../../views/Cadastro/Tabs';
-import TelaInicial from '../../views/TelaInicial';
+import TelaInicial from '../TelaInicial';
 
 const Stack = createStackNavigator();
 
-function LoginViewmodels() {
+function StackNavigatorComponent() {
   return (
-    <NavigationContainer>
-
       <Stack.Navigator initialRouteName="LoginCadastro">
-
         <Stack.Screen 
           name="LoginCadastro" 
           component={LoginCadastro} 
@@ -26,7 +22,6 @@ function LoginViewmodels() {
             headerShown: false, 
           }}
         />
-
         <Stack.Screen 
           name="LoginView" 
           component={LoginView} 
@@ -36,17 +31,15 @@ function LoginViewmodels() {
             headerShown: false, 
           }}
         />
-
         <Stack.Screen 
-            name="Cadastro" 
-            component={Cadastro} 
-            options={{ 
-              title: '', 
-              headerTransparent: true,
-              headerShown: false, 
-            }}
+          name="Cadastro" 
+          component={Cadastro} 
+          options={{ 
+            title: '', 
+            headerTransparent: true,
+            headerShown: false, 
+          }}
         />  
-        
         <Stack.Screen 
           name="EsqueceuSenha" 
           component={EsqueceuSenha} 
@@ -56,7 +49,6 @@ function LoginViewmodels() {
             headerShown: false, 
           }}
         />
-
         <Stack.Screen 
           name="CodigoValidacaoEmail" 
           component={CodigoValidacaoEmail} 
@@ -66,7 +58,6 @@ function LoginViewmodels() {
             headerShown: false, 
           }}
         />
-
         <Stack.Screen
           name="CadastroConfirmacao"
           component={CadastroConfirmacao}
@@ -76,7 +67,6 @@ function LoginViewmodels() {
             headerShown: false, 
           }}
         />
-
         <Stack.Screen
           name="TelaInicial"
           component={TelaInicial}
@@ -86,10 +76,8 @@ function LoginViewmodels() {
             headerShown: false, 
           }}
         />
-
       </Stack.Navigator>
-    </NavigationContainer>
   );
 }
 
-export default LoginViewmodels;
+export default StackNavigatorComponent;
