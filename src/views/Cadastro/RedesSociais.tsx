@@ -5,7 +5,7 @@ import { IconButton } from 'react-native-paper';
 import {
     IconContainer,
     BoxRedeSocial,
-} from '../../models/Cadastro/styled';
+} from '../../models/Styleds/Cadastro/styled';
 
 function RedesSociais(){
     return (

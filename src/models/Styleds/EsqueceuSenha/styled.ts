@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import colors from "../../views/Theme/colors";
+import colors from "../../../views/Theme/colors";
 
 const ContainerLogin = styled.View`
     flex: 1;

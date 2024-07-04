@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, TouchableOpacity, ScrollView, Platform } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Cadastro } from "../../../models/Cadastro";
+import { Cadastro } from "../../../models/Styleds/Cadastro";
 import colors from "../../Theme/colors";
 import Botao from "../../../components/Botao";
 
@@ -16,7 +16,7 @@ import {
     ContainerBoxInf,
     InputContainer,
     SmallInput,
-} from '../../../models/Cadastro/styled';
+} from '../../../models/Styleds/Cadastro/styled';
 
 import TituloFormulario from "../../../components/TituloFormulario";
 import Titulo from "../../../components/Titulo";

@@ -6,13 +6,13 @@ import RedesSociais from "./RedesSociais";
 import { useNavigation } from "@react-navigation/native";
 import TituloFormulario from "../../components/TituloFormulario";
 import { Button } from 'react-native-paper';
-import Font from "../../models/Fonts/";
+import Font from "../../models/Styleds/Fonts";
 
 import {
     ContainerFazerCadastro,
     ContainerLogin,
     TituloLogin
-} from '../../models/Login/styled';
+} from '../../models/Styleds/Login/styled';
 
 
 function LoginView(){

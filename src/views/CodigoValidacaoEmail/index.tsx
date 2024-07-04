@@ -2,12 +2,12 @@ import React from 'react';
 import { useFonts } from "expo-font";
 import Form from "./Form";
 import { View } from "react-native";
-import Font from "../../models/Fonts/";
+import Font from "../../models/Styleds/Fonts";
 
 import {
     ContainerLogin,
     TituloLogin
-} from "../../models/CodigoValidacaoEmail/styled"
+} from "../../models/Styleds/CodigoValidacaoEmail/styled"
 
 
 function CodigoValidacaoEmailView(){

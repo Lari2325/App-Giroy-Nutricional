@@ -3,12 +3,12 @@ import colors from '../Theme/colors';
 import ImagemLogo from './assets/Logo-White.png';
 import Botao from '../../components/Botao';
 import { useNavigation } from '@react-navigation/native';
-import Font from "../../models/Fonts/";
+import Font from "../../models/Styleds/Fonts";
 
 import {
     ContainerLoginCadastro,
     LogoBemVindo,
-} from '../../models/LoginCadastro/styled';
+} from '../../models/Styleds/LoginCadastro/styled';
 
 function LoginCadastro() {
     

@@ -10,7 +10,7 @@ import {
     ContainerEsqueciMinhaSenha,
     ContainerInput,
     IconButtonWrapper,
-} from "../../models/Cadastro/styled";
+} from "../../models/Styleds/Cadastro/styled";
 
 function Form(){
 

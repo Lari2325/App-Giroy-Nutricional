@@ -5,7 +5,7 @@ import {
     ContainerFormEstilizado,
     ContainerInput,
     Input
-} from "../../models/CodigoValidacaoEmail/styled";
+} from "../../models/Styleds/CodigoValidacaoEmail/styled";
 
 function Form(){
 

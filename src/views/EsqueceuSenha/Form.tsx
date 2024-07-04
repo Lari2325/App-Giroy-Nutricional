@@ -3,13 +3,13 @@ import Input from "../../components/Input";
 import { IconButton } from 'react-native-paper';
 import Botao from "../../components/Botao";
 import { useNavigation } from "@react-navigation/native";
-import Font from "../../models/Fonts/";
+import Font from "../../models/Styleds/Fonts";
 
 import {
     ContainerFormEstilizado,
     ContainerInput,
     IconButtonWrapper
-} from '../../models/EsqueceuSenha/styled';
+} from '../../models/Styleds/EsqueceuSenha/styled';
 
 function Form(){
 

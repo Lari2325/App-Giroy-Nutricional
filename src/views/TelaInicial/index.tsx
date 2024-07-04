@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, Text } from "react-native";
 import Titulo from "../../components/Titulo";
-import Descricao from "../../components/Descricao.";
-import Font from "../../models/Fonts";
-
+import Descricao from "../../components/Descricao";
+import Font from "../../models/Styleds/Fonts";
 import {
   Container,
   ImagePerfil,
@@ -13,13 +12,13 @@ import {
   ContainerCalorias,
   ContainerInformacaoAnalisa,
   ContainerInformacoesAnalisa
-} from "../../models/TelaInicial/styled";
+} from "../../models/Styleds/TelaInicial/styled";
 
 import colors from "../Theme/colors";
 import useLoginViewmodels from "../../viewmodels/Login/RealizarLogin";
 
-const TelaInicialView = () => {
-  const { nomeUsuario } = useLoginViewmodels();
+const TelaInicialView: React.FC = () => {
+  const { nomeUsuario, fotoUsuario } = useLoginViewmodels();
 
   Font();
 
@@ -29,7 +28,7 @@ const TelaInicialView = () => {
         <View>
           <ImagePerfil
             source={{
-              uri: 'https://img.freepik.com/fotos-gratis/homem-retrato-rindo_23-2148859448.jpg',
+              uri: fotoUsuario ? fotoUsuario : 'https://img.freepik.com/fotos-premium/icone-de-simbolo-de-neon-de-pessoa-elemento-de-interface-ui-ux-de-renderizacao-3d-simbolo-escuro-e-brilhante_187882-2497.jpg?uid=P92197013&ga=GA1.1.414826843.1702319527&semt=ais_user-customized',
             }}
           />
         </View>

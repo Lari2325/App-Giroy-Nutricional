@@ -1,5 +1,5 @@
 import styled from "styled-components/native"
-import colors from "../../views/Theme/colors"
+import colors from "../../../views/Theme/colors"
 import { Platform } from "react-native"
 
 const Container = styled.ScrollView`

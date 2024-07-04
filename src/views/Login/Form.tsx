@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import TituloFormulario from "../../components/TituloFormulario";
 import Input from "../../components/Input";
 import Botao from "../../components/Botao";
@@ -10,9 +10,9 @@ import {
   ContainerEsqueciMinhaSenha,
   ContainerInput,
   IconButtonWrapper
-} from "../../models/Login/styled";
+} from "../../models/Styleds/Login/styled";
 
-const Form = () => {
+const Form: React.FC = () => {
   const {
     email,
     setEmail,
@@ -22,12 +22,16 @@ const Form = () => {
     goToNextEsqueceuSenhaView
   } = useLoginViewmodels();
 
+  const onLoginPress = () => {
+    console.log('Login button pressed');
+    handleLogin();
+  };
+
   return (
     <ContainerFormEstilizado>
       <TituloFormulario name="E-mail:" />
       <ContainerInput>
         <IconButtonWrapper>
-          {/* Ícone do usuário */}
         </IconButtonWrapper>
         <Input 
           placeholder="Digite seu E-mail"
@@ -38,7 +42,6 @@ const Form = () => {
       <TituloFormulario name="Senha:" />
       <ContainerInput>
         <IconButtonWrapper>
-          {/* Ícone de senha */}
         </IconButtonWrapper>
         <Input 
           secureTextEntry={true}
@@ -48,7 +51,7 @@ const Form = () => {
         />
       </ContainerInput>
       <Botao
-        onPress={handleLogin}
+        onPress={onLoginPress}
         title="Fazer login"
       />
       <ContainerEsqueciMinhaSenha>

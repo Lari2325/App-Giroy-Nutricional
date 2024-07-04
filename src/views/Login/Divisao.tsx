@@ -1,16 +1,16 @@
-import Descricao from "../../components/Descricao.";
+import Descricao from "../../components/Descricao";
 
 import {
     LinhaDivisao,
     ContainerDivisao
-} from "../../models/Login/styled";  
+} from "../../models/Styleds/Login/styled";  
 
 function Divisao(){
     return (
         <ContainerDivisao>
-            <LinhaDivisao></LinhaDivisao>
-            <Descricao title="ou" />
-            <LinhaDivisao></LinhaDivisao>
+            <LinhaDivisao />
+                <Descricao title="ou" />
+            <LinhaDivisao />
         </ContainerDivisao>
     )
 }

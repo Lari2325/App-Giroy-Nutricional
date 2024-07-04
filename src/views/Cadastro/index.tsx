@@ -1,5 +1,5 @@
 import React from 'react';
-import Font from "../../models/Fonts/";
+import Font from "../../models/Styleds/Fonts";
 import Form from "./Form";
 import Divisao from "./Divisao";
 import { View } from "react-native";
@@ -10,7 +10,7 @@ import {
     ContainerLogin,
     TituloLogin,
     ContainerScrollView
-} from '../../models/Cadastro/styled';
+} from '../../models/Styleds/Cadastro/styled';
 
 function Cadastro(){
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import colors from '../../views/Theme/colors';
+import colors from '../../../views/Theme/colors';
 
 const ContainerScrollView = styled.View`
     flex: 1;
@@ -79,6 +79,7 @@ const ContainerDivisao = styled.View`
     align-items: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 100%;
 `
 
 const ContainerLogin = styled.SafeAreaView`

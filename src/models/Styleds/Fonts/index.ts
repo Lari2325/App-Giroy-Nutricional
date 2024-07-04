@@ -3,7 +3,7 @@ import { useFonts } from "expo-font";
 function Font(){
 
     const [loaded]  = useFonts({
-        GilroyBold: require('../../views/Fonts/Gilroy-Bold.ttf'),
+        GilroyBold: require('../../../views/Fonts/Gilroy-Bold.ttf'),
     });
     
     if(!loaded){
