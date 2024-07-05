@@ -23,7 +23,6 @@ const Form: React.FC = () => {
   } = useLoginViewmodels();
 
   const onLoginPress = () => {
-    console.log('Login button pressed');
     handleLogin();
   };
 
