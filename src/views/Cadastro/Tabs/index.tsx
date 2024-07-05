@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { View, TouchableOpacity, ScrollView, Platform } from "react-native";
+import React from "react";
+import { View, TouchableOpacity, ScrollView } from "react-native";
 import DateTimePicker from '@react-native-community/datetimepicker';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Cadastro } from "../../../models/Styleds/Cadastro";
 import colors from "../../Theme/colors";
 import Botao from "../../../components/Botao";
-import { supabase } from '../../../db';
-import AsyncStorage from '@react-native-async-storage/async-storage'; 
+import InformacoesViewModel from "../../../viewmodels/Cadastro/Tabs"; 
 
 import {
     ContainerScrollView,
@@ -17,143 +16,53 @@ import {
     LarguraBotao,
     ContainerBoxInf,
     InputContainer,
-    SmallInput,
+    SmallInput
 } from '../../../models/Styleds/Cadastro/styled';
 
 import TituloFormulario from "../../../components/TituloFormulario";
 import Titulo from "../../../components/Titulo";
-import { useNavigation } from "@react-navigation/native";
 
 const InformacoesView = () => {
-    const navigation = useNavigation();
-    const [user, setUser] = useState(null); 
 
-    const loadUser = async () => {
-        try {
-            const userString = await AsyncStorage.getItem('token');
-            if (userString) {
-                setUser(userString); // Save token as user
-            }
-        } catch (error) {
-            console.error('Erro ao carregar usuário logado:', error);
-        }
-    };
-
-    useEffect(() => {
-        loadUser();
-    }, []);
-
-    const NavegarTelaInicial = () => {
-        navigation.navigate('TelaInicial');
-    };
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [date, setDate] = useState(new Date());
-    const [showDatePicker, setShowDatePicker] = useState(false);
-    const [weight, setWeight] = useState('');
-    const [unit, setUnit] = useState('kg');
-    const [altura, setAltura] = useState('Cm');
-    const [heightFt, setHeightFt] = useState('');
-    const [heightIn, setHeightIn] = useState('');
-    const [heightCm, setHeightCm] = useState('');
-    const [sexo, setSexo] = useState('F');
-    const [objetivo, setObjetivo] = useState('');
-    const [problemasSaude, setProblemasSaude] = useState([]);
-    const [tipoDieta, setTipoDieta] = useState('');
-    const [atividadeDiaria, setAtividadeDiaria] = useState('');
-    const [refeicoes, setRefeicoes] = useState([]);
-
-    const handleNext = () => {
-        if (currentIndex < Cadastro.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-        }
-    };
-
-    const handleBack = () => {
-        if (currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
-        }
-    };
-
-    const onChangeDate = (event, selectedDate) => {
-        const currentDate = selectedDate || date;
-        setShowDatePicker(Platform.OS === 'ios');
-        setDate(currentDate);
-    };
-
-    const formatDate = (date) => {
-        return new Intl.DateTimeFormat('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(date);
-    };
-
-    const handleSelectOption = (option, setter) => {
-        setter(option);
-    };    
-
-    const handleSelectProblemaSaude = (problema) => {
-        if (problemasSaude.includes(problema)) {
-            setProblemasSaude(problemasSaude.filter(item => item !== problema));
-        } else {
-            setProblemasSaude([...problemasSaude, problema]);
-        }
-    };
-    
-    const handleSelectRefeicoes = (refeicao) => {
-        if (refeicoes.includes(refeicao)) {
-            setRefeicoes(refeicoes.filter(item => item !== refeicao));
-        } else {
-            setRefeicoes([...refeicoes, refeicao]);
-        }
-    };  
-
-    const insertData = async () => {
-        try {
-            const token = await AsyncStorage.getItem('token');
-            if (!token) {
-                console.error('Token de usuário não encontrado. Usuário não está logado.');
-                return;
-            }
-    
-            const { data: userData, error: userError } = await supabase
-                .from('cliente')
-                .select('id, email')
-                .eq('token', token)
-                .single();
-    
-            if (userError) {
-                console.error('Erro ao buscar dados do usuário:', userError);
-                return;
-            }
-    
-            console.log('Dados do usuário:', userData);
-    
-            // Atualizar os dados do usuário
-            const { data: updatedData, error: updateError } = await supabase
-                .from('cliente')
-                .update({
-                    dt_nascimento: date,
-                    meta_peso: parseFloat(weight),
-                    altura: altura === 'Cm' ? parseFloat(heightCm) : parseFloat(heightFt) * 30.48 + parseFloat(heightIn) * 2.54,
-                    sexo,
-                    objetivo,
-                    atividade_diaria: atividadeDiaria,
-                    tipo_dieta: tipoDieta,
-                    problemas_saude: problemasSaude,
-                    refeicoes: refeicoes,
-                })
-                .eq('id', userData.id)
-                .select();
-    
-            if (updateError) {
-                console.error('Erro ao atualizar dados do usuário:', updateError);
-                return;
-            }
-    
-            console.log('Dados atualizados com sucesso:', updatedData);
-            handleNext();
-        } catch (error) {
-            console.error('Erro ao salvar os dados:', error);
-        }
-    };    
+    const {
+        currentIndex,
+        setSexo,
+        setObjetivo,
+        setTipoDieta,
+        setAtividadeDiaria,
+        handleNext,
+        handleBack,
+        onChangeDate,
+        formatDate,
+        handleSelectOption,
+        handleSelectProblemaSaude,
+        handleSelectRefeicoes,
+        insertData,
+        metaPeso,
+        setMetapeso,
+        unit,
+        setUnit,
+        peso,
+        setPeso,
+        altura,
+        showDatePicker,
+        setAltura,
+        heightFt,
+        setHeightFt,
+        heightIn,
+        setHeightIn,
+        setShowDatePicker,
+        heightCm,
+        objetivo,
+        date,
+        sexo,
+        setHeightCm,
+        tipoDieta,
+        problemasSaude,
+        refeicoes,
+        atividadeDiaria,
+        NavegarTelaInicial
+    }  = InformacoesViewModel();
 
     const renderInput = () => {
         const currentEntry = Cadastro[currentIndex];
@@ -176,14 +85,39 @@ const InformacoesView = () => {
             );
         }
     
-        if (currentIndex === 1 || currentIndex === 2) {
+        if (currentIndex === 1) {
             return (
                 <ContainerBoxInf>
                     <Input
                         keyboardType="numeric"
-                        placeholder={currentIndex === 1 ? "Digite seu peso" : "Digite a meta de peso"}
-                        value={weight}
-                        onChangeText={setWeight}
+                        placeholder="Digite seu peso"
+                        value={peso}
+                        onChangeText={setPeso}
+                    />
+                    <ContainerBotoes>
+                        <LarguraBotao>
+                            <BotaoPeso onPress={() => setUnit('kg')} style={{ backgroundColor: unit === 'kg' ? colors.tertiary : colors.primary }}>
+                                <BotaoTexto>kg</BotaoTexto>
+                            </BotaoPeso>
+                        </LarguraBotao>
+                        <LarguraBotao>
+                            <BotaoPeso onPress={() => setUnit('ibs')} style={{ backgroundColor: unit === 'ibs' ? colors.tertiary : colors.primary }}>
+                                <BotaoTexto>ibs</BotaoTexto>
+                            </BotaoPeso>
+                        </LarguraBotao>
+                    </ContainerBotoes>
+                </ContainerBoxInf>
+            );
+        }
+
+        if (currentIndex === 2) {
+            return (
+                <ContainerBoxInf>
+                    <Input
+                        keyboardType="numeric"
+                        placeholder="Digite a meta de peso"
+                        value={metaPeso}
+                        onChangeText={setMetapeso}
                     />
                     <ContainerBotoes>
                         <LarguraBotao>
@@ -365,7 +299,7 @@ const InformacoesView = () => {
                             color={colors.tertiary}
                             title={currentIndex === Cadastro.length - 1 ? "Enviar" : "Próximo"}
                             onPress={
-                                currentIndex === Cadastro.length - 1 ? insertData : handleNext
+                                currentIndex === Cadastro.length - 1 ? () => { insertData(); NavegarTelaInicial(); } : handleNext
                             }
                         />
                     )}

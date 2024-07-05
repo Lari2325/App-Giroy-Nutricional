@@ -15,9 +15,33 @@ const useCadastroViewmodels = () => {
         navigation.navigate('LoginView');
     };
 
+    const validarEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    const validarSenha = (senha) => {
+        return senha.length >= 6;
+    };
+
     const handleRegister = async () => {
+        
+        if (!nome || !email || !senha || !confirmarSenha) {
+            Alert.alert("Erro", "Por favor, preencha todos os campos.");
+            return;
+        }
+
+        if (!validarEmail(email)) {
+            Alert.alert("Erro", "Por favor, insira um email válido.");
+            return;
+        }
+
+        if (!validarSenha(senha)) {
+            Alert.alert("Erro", "A senha deve ter pelo menos 6 caracteres.");
+            return;
+        }
+
         if (senha !== confirmarSenha) {
-            Alert.alert("Erro", "As senhas não coincidem");
+            Alert.alert("Erro", "As senhas não coincidem.");
             return;
         }
 
@@ -28,10 +52,10 @@ const useCadastroViewmodels = () => {
             ]);
 
         if (error) {
-            Alert.alert("Erro", "Não foi possível cadastrar o usuário");
+            Alert.alert("Erro", "Não foi possível cadastrar o usuário.");
             console.error(error);
         } else {
-            Alert.alert("Sucesso", "Usuário cadastrado com sucesso");
+            Alert.alert("Sucesso", "Usuário cadastrado com sucesso.");
             navigation.navigate('LoginView');
         }
     };

@@ -37,8 +37,6 @@ const useLoginViewmodels = () => {
           setTipoDietaUsuario(user.tipo_dieta);
           setProblemasSaudeUsuario(user.problemas_saude);
           setRefeicoesUsuario(user.refeicoes);
-
-
         }
       }
     };
@@ -97,11 +95,9 @@ const useLoginViewmodels = () => {
       !alturaUsuario  || 
       !sexoUsuario || 
       !objetivoUsuario || 
-      !objetivoUsuario || 
       !atividadeDiariaUsuario || 
       !tipoDietaUsuario || 
-      !problemasSaudeUsuario || 
-      !problemasSaudeUsuario || 
+      !problemasSaudeUsuario ||  
       !refeicoesUsuario
     ){
       navigation.navigate('CadastroConfirmacao');

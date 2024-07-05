@@ -18,7 +18,7 @@ import colors from "../Theme/colors";
 import useLoginViewmodels from "../../viewmodels/Login/RealizarLogin";
 
 const TelaInicialView: React.FC = () => {
-  const { nomeUsuario, fotoUsuario } = useLoginViewmodels();
+  const { nomeUsuario, fotoUsuario, alturaUsuario } = useLoginViewmodels();
 
   Font();
 
@@ -47,7 +47,7 @@ const TelaInicialView: React.FC = () => {
               <Descricao color={colors.tertiary} title="Calorias" />
             </Text>
             <Text>
-              <Descricao color={colors.quaternary} title="600" />
+              <Descricao color={colors.quaternary} title={alturaUsuario} />
             </Text>
           </ContainerCalorias>
           <ContainerInformacoesAnalisa>
